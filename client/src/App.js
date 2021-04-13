@@ -9,6 +9,7 @@ import Login from './components/Login/Login'
 import Signup from './components/Signup/Signup'
 import CreatePost from './components/CreatePost/CreatePost'
 import {reducer,initialState} from './components/Reducers/userReduser'
+import {AnimatePresence, motion} from 'framer-motion'
 
 export const UserContext = createContext()
 
@@ -25,6 +26,7 @@ const Routing = () =>{
     }
   },[])
   return(
+    <AnimatePresence exitBeforeEnter>
     <Switch>
     <Route exact path='/'>
       <TopNav /><br/><br/><br/><br/><br/><br/>
@@ -53,6 +55,7 @@ const Routing = () =>{
     </Route>
 
     </Switch>
+    </AnimatePresence>
   )
 }
 

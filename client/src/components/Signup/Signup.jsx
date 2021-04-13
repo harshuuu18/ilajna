@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
+import {ToastContainer, Toast, toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import {AnimatePresence, motion} from 'framer-motion'
+
 
 function Signup() {
     const [name,setName] = useState("")
@@ -23,15 +27,37 @@ function Signup() {
         })
         .then(res => res.json())
         .then(data => {
+            
             console.log(data)
-            history.push('/login')
+            if(data.error){
+                console.log(data.error)
+                toast.error(data.error, {
+                    position: "top-right",
+                    top: '10',
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    });
+            }else{
+                console.log(data);
+                toast.success(data)
+                history.push('/login')
+            }
         })
         .catch(err => console.log(err))
     }
 
     return (
-        <>
+        <motion.div 
+        initial={{opacity: 0, x:'-100%'}}
+        animate={{opacity: 1, x:0}}
+        exit={{opacity:0, x:'-100%'}}
+         >
         <article>
+        <ToastContainer />
 
         <div className="title">
             <h1><a href="index.html">Ilajna</a></h1>
@@ -66,7 +92,7 @@ function Signup() {
         </aside>
 
         </article>   
-        </>
+        </ motion.div>
     )
 }
 

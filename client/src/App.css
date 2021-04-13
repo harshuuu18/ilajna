@@ -388,3 +388,19 @@ h1 small {
   font-size: 20px;
 }
 /* For Upload file */
+
+
+/* For tost Notification */
+.Toastify__toast-container--top-right{
+  top: 21px;
+}
+
+.Toastify__toast-container--top-left, .Toastify__toast-container--top-center, .Toastify__toast-container--top-right{
+  top: 80px !important;
+    transform: translateX(0);
+    color: black !important;
+    font-size: 18px !important;
+}
+
+/* For tost Notification */
+
