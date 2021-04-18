@@ -11,7 +11,7 @@ function BottomNav() {
     return (
         <>
         <nav>
-            <Link><img src={Msg2} alt="" /></Link>
+            <Link to='/dms'><img src={Msg2} alt="" /></Link>
             <Link to='/'><img src={Home} alt="" /></Link>
             <Link to='/createpost'><img src={state?.gender === "male" ? Boy : Girl} alt="" /></Link>
         </nav>   

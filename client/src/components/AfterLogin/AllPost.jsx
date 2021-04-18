@@ -4,6 +4,7 @@ import Liked from '../img/liked.png'
 import Like from '../img/like.png'
 import Msg2 from '../img/msg2.png'
 import {UserContext} from '../../App'
+import { Link } from 'react-router-dom'
 
 function AllPost() {
 
@@ -106,7 +107,7 @@ function AllPost() {
                         <img src={Like} alt="" onClick={()=>likePost(item._id)} />
 
                         }
-                        <img src={Msg2} alt=""  />
+                        <Link to={"/dms/" + item.postedBy?._id} ><img src={Msg2} alt=""  /></Link>
                          {/* <img src="liked.png" alt=""> --> */}
                     </div>
                 </div>
